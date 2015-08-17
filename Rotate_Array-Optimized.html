@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <title>Rotate_Array</title>
+    </head>
+    
+    <body>
+        <script>
+            
+    /* This is an optimized solution. We deine a variable offset and a new array. Using the offset varible, the elements of input array are             transferred to other array. The index is decided using the offset */
+            
+            function rotate_array()
+            {
+                
+        /* The array length is provided. Array length is checked for negative numbers and strings */
+                
+                var length = prompt("Input the length of the array");
+                parseInt(length);
+                
+            if(length < 0 || isNaN(length) == true)
+                {
+                    alert("Please input only a non negative integer as length");
+                }
+                
+            else
+                
+            // Using for loop, we can input the array elements
+                
+                var arr = new Array(length);
+                for(var i = 0; i < length; i++)
+                {
+                    arr[i] = prompt("Input the array element");
+                }
+                
+            //The rotating order is provided here and checked for negative numbers and strings
+                
+                var order = prompt("Input the rotating order");
+                parseInt(order);
+                if(order < 0 || isNaN(order) == true) 
+                {
+                    alert("Please provide a non negative rotating order");
+                }
+                
+                else
+                    
+                document.write("The input array elements are as: " + arr);
+                document.write("<br/>");
+                
+            //The rotating logic is defined here.
+                
+                var offset = (length-order) % length;
+                var new_arr = new Array(length);
+                for(var x = 0; x < length; x++)
+                {
+                        var y = (x+offset) % length;   
+                        new_arr[x] = arr[y];
+                    
+                }
+                
+                document.write("The array elements are as: " + new_arr);
+            }
+            rotate_array()
+            
+        </script>
+    </body>
+</html>

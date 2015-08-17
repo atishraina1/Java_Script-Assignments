@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    
+    <head>
+        <title>Rotate_Array</title>
+    </head>
+    
+    <body>
+        <script>
+            
+    /* The logic is based on two loops. First Loop runs from the first element of array to the array with index of the rotating order
+        Second loop swaps the last two elements. The swapping continues till the first element.
+        The swapping is repeated nth number of times where n is the rotating order */
+            
+            function rotate_array()
+            {
+                
+        /* The array length is provided. Array length is checked for negative numbers and strings */
+                
+                var length = prompt("Input the length of the array");
+                parseInt(length);
+                
+            if(length < 0 || isNaN(length) == true)
+                {
+                    alert("Please input only a non negative integer as length");
+                }
+                
+            else
+                
+            // Using for loop, we can input the array elements
+                
+                var arr = new Array(length);
+                for(var i = 0; i < length; i++)
+                {
+                    arr[i] = prompt("Input the array element");
+                }
+                
+            //The rotating order is provided here and checked for negative numbers and strings
+                
+                var order = prompt("Input the rotating order");
+                parseInt(order);
+                if(order < 0 || isNaN(order) == true) 
+                {
+                    alert("Please provide a non negative rotating order");
+                }
+                
+                else
+                    
+                document.write("The input array elements are as: " + arr);
+                document.write("<br/>");
+                
+            /*The rotating logic is defined here. An important consideration is to not use the arithemetic operations for swapping as the inputs may be strings as well */
+                
+                for(var x = 0; x < order; x++)
+                {
+                    for(var y = arr.length-1 ; y > 0; y--)
+                    {
+                        var temp = arr[y];
+                        arr[y] = arr[y-1];
+                        arr[y-1] = temp;
+                    }
+                }
+                
+                document.write("The array elements are as: " + arr);
+            }
+            rotate_array()
+            
+        </script>
+    </body>
+</html>
